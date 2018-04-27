@@ -10,12 +10,14 @@ import {
   Text, 
   TouchableOpacity, 
   TouchableHighlight,
-  View 
+  View,
+  Button 
 } from 'react-native';
 import Util from './src/utils/util';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
+import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 import Day1 from './src/pages/day1'; //bug when not stop then exit
 
@@ -37,6 +39,10 @@ class MainView extends Component {
   }
 
   _jumpToDay(index){
+    this.props.navigation.navigate(this.state.days[index].component, {
+      itemId: 86,
+      otherParam: 'anything you want here',
+    });
     this.props.navigator.push({
       title: this.state.days[index].title,
       index: index + 1,
@@ -247,3 +253,23 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   }
 });
+
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: MainView,
+    },
+    Details: {
+      screen: DetailsScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+export default class App extends Component {
+  render() {
+    return <RootStack />;
+  }
+}
