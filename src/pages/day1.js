@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import { Platform,ListView,StyleSheet,StatusBar,Text,TouchableHighlight,View } from 'react-native';
 import Util from '../utils/util';
 import PropTypes from 'prop-types';// 15.5 以后独立出来了	npminstall--save prop-types 或者yarn add prop-types
+import { StackNavigator } from 'react-navigation';
 
 
 class WatchFace extends Component{
@@ -113,7 +114,14 @@ class WatchRecord extends Component{
   }
 }
 
-export default class extends Component{
+export default class day1 extends Component{
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    
+    return {
+      title: params ? params.title : 'A Nested Details Screen',
+    }
+  };
   constructor() {
     super();
       this.state = {
@@ -251,7 +259,6 @@ const styles = StyleSheet.create({
   watchContainer:{
     alignItems: "center",
     backgroundColor: "#f3f3f3",
-    marginTop: 60,
   },
   watchFaceContainer:{
     width: Util.size.width,
