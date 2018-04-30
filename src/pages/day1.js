@@ -153,7 +153,7 @@ export default class day1 extends Component{
 
   componentDidMount() {
     if(Platform.OS === "ios"){
-      StatusBar.setBarStyle(0);
+      // StatusBar.setBarStyle(0);
     }
   }
 

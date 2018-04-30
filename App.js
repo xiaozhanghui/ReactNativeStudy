@@ -20,9 +20,12 @@ import Swiper from 'react-native-swiper';
 import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 import Day1 from './src/pages/day1'; //bug when not stop then exit
-// import Day2 from './src/pages/day2'; 
+import Day2 from './src/pages/day2'; 
 
 class MainView extends Component {
+  static navigationOptions = {
+    title:'RNStudy'
+  }
   constructor() {
     super();
     this.state = {
@@ -35,6 +38,15 @@ class MainView extends Component {
         size: 48,
         color: "#ff856c",
         hideNav: false,
+      },{
+        key:1,
+        title:"A weather app",
+        component: 'day2',
+        isFA: false,
+        icon: "ios-partly-sunny",
+        size:60,
+        color:"#90bdc1",
+        hideNav: true,
       }]
     }
   }
@@ -154,7 +166,7 @@ const styles = StyleSheet.create({
   
 // })
 
-const RootStack = StackNavigator(
+const MainStack = StackNavigator(
   {
     Home: {
       screen: MainView,
@@ -162,11 +174,39 @@ const RootStack = StackNavigator(
     day1: {
       screen: Day1,
     },
-  },
-  {
-    initialRouteName: 'Home',
   }
 );
+
+const RootStack = StackNavigator(
+  {
+    Main: {
+      screen: MainStack,
+    },
+    day2: {
+      screen: Day2,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  }
+);
+// const RootStack = StackNavigator(
+//   {
+//     Home: {
+//       screen: MainView,
+//     },
+//     day1: {
+//       screen: Day1,
+//     },
+//     day2: {
+//       screen: Day2,
+//     },
+//   },
+//   {
+//     initialRouteName: 'Home',
+//   }
+// );
 
 export default class App extends Component {
   render() {
