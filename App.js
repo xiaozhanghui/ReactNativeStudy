@@ -19,8 +19,16 @@ import IconFA from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
-import Day1 from './src/pages/day1'; //bug when not stop then exit
+import Day1 from './src/pages/day1'; 
 import Day2 from './src/pages/day2'; 
+import Day3 from './src/pages/day3'; 
+import Day4 from './src/pages/day4'; 
+import Day5 from './src/pages/day5'; 
+import Day6 from './src/pages/day6'; 
+import Day7 from './src/pages/day7'; 
+import Day8 from './src/pages/day8'; 
+import Day9 from './src/pages/day9'; 
+import Day10 from './src/pages/day10'; 
 
 class MainView extends Component {
   static navigationOptions = {
@@ -46,6 +54,78 @@ class MainView extends Component {
         icon: "ios-partly-sunny",
         size:60,
         color:"#90bdc1",
+        hideNav: true,
+      },{
+        key:2,
+        title:"twitter",
+        component: 'day3',
+        isFA: false,
+        icon: "logo-twitter",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:3,
+        title:"cocoapods",
+        component: 'day4',
+        isFA: true,
+        icon: "contao",
+        size:50,
+        color:"#FF9A05",
+        hideNav: false,
+      },{
+        key:4,
+        title:"find my location",
+        component: 'day5',
+        isFA: false,
+        icon: "md-pin",
+        size:50,
+        color:"#00D204",
+        hideNav: false,
+      },{
+        key:5,
+        title:"Spotify",
+        component: 'day6',
+        isFA: true,
+        icon: "spotify",
+        size:50,
+        color:"#777",
+        hideNav: true,
+      },{
+        key:6,
+        title:"Moveable Circle",
+        component: 'day7',
+        isFA: false,
+        icon: "ios-baseball",
+        size:50,
+        color:"#5e2a06",
+        hideNav: true,
+      },{
+        key:7,
+        title:"Swipe Left Menu",
+        component: 'day8',
+        isFA: true,
+        icon: "google",
+        size:50,
+        color:"#4285f4",
+        hideNav: true,
+      },{
+        key:8,
+        title:"Twitter Parallax View",
+        component: 'day9',
+        isFA: true,
+        icon: "twitter-square",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:9,
+        title:"Tumblr Menu",
+        component: 'day10',
+        isFA: false,
+        icon: "logo-tumblr",
+        size:50,
+        color:"#37465c",
         hideNav: true,
       }]
     }
@@ -174,6 +254,19 @@ const MainStack = StackNavigator(
     day1: {
       screen: Day1,
     },
+    day4: {
+      screen: Day4,
+    },
+    day5: {
+      screen: Day5,
+    },
+    day6: {
+      screen: Day6,
+    },
+
+  },
+    {
+    initialRouteName: 'Home',
   }
 );
 
@@ -185,28 +278,27 @@ const RootStack = StackNavigator(
     day2: {
       screen: Day2,
     },
+    day3: {
+      screen: Day3,
+    },
+    day7: {
+      screen: Day7,
+    },
+    day8: {
+      screen: Day8,
+    },
+    day9: {
+      screen: Day9,
+    },
+    day10: {
+      screen: Day10,
+    },
   },
   {
     mode: 'modal',
     headerMode: 'none',
   }
 );
-// const RootStack = StackNavigator(
-//   {
-//     Home: {
-//       screen: MainView,
-//     },
-//     day1: {
-//       screen: Day1,
-//     },
-//     day2: {
-//       screen: Day2,
-//     },
-//   },
-//   {
-//     initialRouteName: 'Home',
-//   }
-// );
 
 export default class App extends Component {
   render() {
