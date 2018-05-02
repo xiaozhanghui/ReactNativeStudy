@@ -277,8 +277,7 @@ const styles = StyleSheet.create({
 		width: Util.size.width,
   	height: Util.size.height-350,
   	left:0,
-    // borderTopWidth:Util.pixel,
-    borderTopWidth:1,
+    borderTopWidth:Util.pixel,
     borderTopColor:"#9eacb6"
 	},
 	userPanel:{
